@@ -51,8 +51,8 @@ jobs:
 
       - name: Apply PR
         run: |
-          git fetch origin ${{ github.event.pull_request.head.ref }}
-          git checkout ${{ github.event.pull_request.head.ref }}
+          git fetch ${{ github.event.pull_request.head.repo.clone_url }}
+          git checkout ${{ github.event.pull_request.head.sha }}
           git submodule update
 
           ./occ upgrade
